@@ -31,7 +31,7 @@ do
         echo "Starting $devName from $f"
         echo "Set OBS stream server as rtmp://localhost:$devPort/virtualCam and Start Streaming"
         echo
-        ffmpeg -f flv -listen 1 -i rtmp://localhost:$devPort/virtualCam -f v4l2 -vcodec rawvideo $f
+        ffmpeg -f flv -listen 1 -i rtmp://localhost:$devPort/virtualCam -vf hflip -f v4l2 -vcodec rawvideo $f
         echo "$devName stopped"
     fi
 done
