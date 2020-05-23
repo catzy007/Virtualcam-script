@@ -1,5 +1,6 @@
 #!/bin/bash
 devName="MyVirtualCam"
+devPort=1935 #default 1935
 
 if [ "$EUID" -ne 0 ]
   then echo "Cannot set some parameters"; echo "Are you root?"
@@ -26,14 +27,11 @@ fi
 
 for f in $FILES
 do
-    #echo $(echo "$f" | cut -c6-)
-    #cat /sys/class/video4linux/$(echo "$f" | cut -c6-)/name
     if [ "$(cat /sys/class/video4linux/$(echo "$f" | cut -c6-)/name)" == "$devName" ]; then
         echo "Starting $devName from $f"
-        echo "Set OBS stream server as rtmp://localhost:1935/virtualCam and Start Streaming"
-        ffmpeg -f flv -listen 1 -i rtmp://localhost:1935/virtualCam -f v4l2 -vcodec rawvideo $f
+        echo "Set OBS stream server as rtmp://localhost:$devPort/virtualCam and Start Streaming"
+        echo
+        ffmpeg -f flv -listen 1 -i rtmp://localhost:$devPort/virtualCam -f v4l2 -vcodec rawvideo $f
+        echo "$devName stopped"
     fi
 done
-
-#sudo modprobe v4l2loopback devices=1 card_label="loopback 1" exclusive_caps=1,1,1,1,1,1,1,1
-#ffmpeg -f flv -listen 1 -i rtmp://localhost:1935/virtual -f v4l2 -vcodec rawvideo /dev/video1
