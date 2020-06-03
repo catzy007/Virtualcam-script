@@ -18,6 +18,6 @@ sudo apt install v4l-utils v4l2loopback-utils obs-studio v4l2loopback-dkms
 
 > This will create virtual camera called `MyVirtualCam`
 
-![Google Meet](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Img1")
+![Google Meet](https://raw.githubusercontent.com/catzy007/Virtualcam-script/master/img.png "Img1")
 
 * Press `Stop Streaming` if you're done
