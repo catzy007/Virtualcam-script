@@ -22,3 +22,5 @@ sudo apt install v4l-utils v4l2loopback-utils obs-studio v4l2loopback-dkms
 ![Google Meet](https://raw.githubusercontent.com/catzy007/Virtualcam-script/master/img.png "Img1")
 
 * Press `Stop Streaming` if you're done
+
+> If `MyVirtualCam` not found, restart your browser or apps
